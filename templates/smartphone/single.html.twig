@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		{% if smartphone %}
+			<table class="table table-success table-hover">
+				<thead>
+				<tr>
+					<th>Specification</th>
+					<th>Value</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>ID</td>
+					<td>{{ smartphone.id }}</td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td>{{ smartphone.name }}</td>
+				</tr>
+				<tr>
+					<td>Brand</td>
+					<td>{{ smartphone.brand }}</td>
+				</tr>
+				<tr>
+					<td>Front Camera</td>
+					<td>{{ smartphone.frontCamera }}</td>
+				</tr>
+				<tr>
+					<td>ID</td>
+					<td>{{ smartphone.id }}</td>
+				</tr>
+				<tr>
+					<td>Back Camera</td>
+					<td>{{ smartphone.backCamera }}</td>
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td>{{ smartphone.price }}</td>
+				</tr>
+				</tbody>
+			</table>
+		{% else %}
+			<h1>Invalid Smartphone Name</h1>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block navigationPath %}
+	<a class="btn btn-primary position-absolute" href="{{ path('smartphone-list') }}">Back to main page</a>
+{% endblock %}

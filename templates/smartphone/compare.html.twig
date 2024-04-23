@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container text-center">
+		{% if smartphone1 and smartphone2 %}
+			{% if result %}
+				<h1 class="mb-4">Result</h1>
+				<table class="table table-success table-hover table-striped-columns">
+					<thead>
+					<tr>
+						<th>Specifications</th>
+						<th>
+							<a href="{{ path('single-smartphone',{id: smartphone1.id}) }}"
+							>{{ smartphone1.name }}</a> </th>
+						<th>
+							<a href="{{ path('single-smartphone',{id: smartphone2.id}) }}"
+							>{{ smartphone2.name }}</a> </th>
+						<th>Better Option</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>Front Camera</td>
+						<td>{{ smartphone1.frontCamera }} MP</td>
+						<td>{{ smartphone2.frontCamera }} MP</td>
+						<td>{{ result['front_camera'] }}</td>
+					</tr>
+					<tr>
+						<td>Back Camera</td>
+						<td>{{ smartphone1.backCamera }} MP</td>
+						<td>{{ smartphone2.backCamera }} MP</td>
+						<td>{{ result['back_camera'] }}</td>
+					</tr>
+					<tr>
+						<td>Battery Capacity</td>
+						<td>{{ smartphone1.batteryCapacity }} mAh</td>
+						<td>{{ smartphone2.batteryCapacity }} mAh</td>
+						<td>{{ result['battery_capacity'] }}</td>
+					</tr>
+					<tr>
+						<td>Price</td>
+						<td>{{ smartphone1.price }} rupees</td>
+						<td>{{ smartphone2.price }} rupees</td>
+						<td>{{ result['price'] }}</td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="alert alert-success">{{ result['result'] }}</div>
+			{% endif %}
+		{% else %}
+			<h1 class="mt-4">Please select smartphones first</h1>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block navigationPath %}
+	<a class="btn btn-primary position-absolute" href="{{ path('smartphone-list') }}">Back to main page</a>
+{% endblock %}
