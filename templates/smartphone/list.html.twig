@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1 class="text-center mb-3">Smartphones {{ smartphones|length }}</h1>
+	<div class="container text-center d-flex justify-content-center flex-wrap">
+		{% if smartphones %}
+			{% for smartphone in smartphones %}
+				<div class="card m-3 " style="width: 40rem;">
+					<h2>Smartphone Name: {{ smartphone.name }}</h2>
+					<h3>Brand: {{ smartphone.brand }}</h3>
+					<h4>Front Camera : {{ smartphone.frontCamera }} MP</h4>
+					<h4>Back Camera : {{ smartphone.backCamera }} MP</h4>
+					<h4>Battery capacity : {{ smartphone.batteryCapacity }} mAh</h4>
+					<h4>Price : {{ smartphone.price }} rupees</h4>
+				</div>
+			{% endfor %}
+		{% else %}
+			<h1>{{ 'No Smartphones are available' }}</h1>
+		{% endif %}
+	</div>
+{% endblock %}
